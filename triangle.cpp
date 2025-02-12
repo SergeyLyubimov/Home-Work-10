@@ -33,7 +33,8 @@ int main(){
     
     if ((xa != xb != xc && ya != yb != yc) && (a != 0 && b != 0 && c != 0)){
         float p = a + b + c;
-        float ar = sqrt(p * (p - a) * (p - b) * (p - c));
+        float sp = p / 2;
+        float ar = sqrt(sp * (sp - a) * (sp - b) * (sp - c));
 
         std::cout << "Perimeter: " << p << std::endl;
         std::cout << "Area: " << ar << std::endl;
