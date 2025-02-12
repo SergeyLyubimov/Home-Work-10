@@ -27,13 +27,16 @@ int main(){
     std::cout << "Input Y for point C: ";
     std::cin >> yc;
 
-    float a = sqrt(pow((xb - xa), 2) + pow((yb - ya), 2));
-    float b = sqrt(pow((xc - xb), 2) + pow((yc - yb), 2));
-    float c = sqrt(pow((xa - xc), 2) + pow((ya - yc), 2));
+    float a = sqrt(pow((xb - xa), 2.0f) + pow((yb - ya), 2.0f));
+    float b = sqrt(pow((xc - xb), 2.0f) + pow((yc - yb), 2.0f));
+    float c = sqrt(pow((xa - xc), 2.0f) + pow((ya - yc), 2.0f));
+
+    float A = std::max(a, std::max(b, c));
+    float BC = a + b + c - A;
     
-    if ((xa != xb != xc && ya != yb != yc) && (a != 0 && b != 0 && c != 0)){
+    if (std::abs(A - BC) > 1e-10){
         float p = a + b + c;
-        float sp = p / 2;
+        float sp = p / 2.0f;
         float ar = sqrt(sp * (sp - a) * (sp - b) * (sp - c));
 
         std::cout << "Perimeter: " << p << std::endl;
